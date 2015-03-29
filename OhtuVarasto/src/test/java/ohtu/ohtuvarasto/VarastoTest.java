@@ -24,6 +24,34 @@ public class VarastoTest {
     public void konstruktoriLuoTyhjanVaraston() {
         assertEquals(0, varasto.getSaldo(), vertailuTarkkuus);
     }
+    
+    @Test
+    public void eiVoidaOttaaNegatiivistaMaaraa(){
+        varasto.lisaaVarastoon(5);
+        varasto.otaVarastosta(-1);
+        assertEquals(5, varasto.getSaldo(), vertailuTarkkuus);
+    }
+    
+    @Test
+    public void eiVoidaLisataNegatiivistaMaaraa(){
+        varasto.lisaaVarastoon(5);
+        varasto.lisaaVarastoon(-1);
+        assertEquals(5, varasto.getSaldo(), vertailuTarkkuus);
+    }
+    
+    @Test
+    public void eiVoidaLisataTavaraaYliTilavuuden(){
+        varasto.lisaaVarastoon(12);
+        assertEquals(10, varasto.getSaldo(), vertailuTarkkuus);
+    }
+    
+    @Test
+    public void josYritetäänOttaaYliSaldonPalautetaanSaldo(){
+        varasto.lisaaVarastoon(8);
+        double saadaan = varasto.otaVarastosta(20);
+        assertEquals(8, saadaan, vertailuTarkkuus);     
+    }
+    
 
     @Test
     public void uudellaVarastollaOikeaTilavuus() {
