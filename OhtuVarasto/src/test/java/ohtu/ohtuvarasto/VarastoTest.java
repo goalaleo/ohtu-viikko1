@@ -45,6 +45,7 @@ public class VarastoTest {
         assertEquals(10, varasto.getSaldo(), vertailuTarkkuus);
     }
     
+    //katotaan että webhook toimii!
     @Test
     public void josYritetäänOttaaYliSaldonPalautetaanSaldo(){
         varasto.lisaaVarastoon(8);
