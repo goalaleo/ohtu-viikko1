@@ -49,7 +49,7 @@ public class VarastoTest {
     public void josYritetäänOttaaYliSaldonPalautetaanSaldo(){
         varasto.lisaaVarastoon(8);
         double saadaan = varasto.otaVarastosta(20);
-        assertEquals(8, saadaan, vertailuTarkkuus);     
+        assertEquals(9, saadaan, vertailuTarkkuus);     
     }
     
 
